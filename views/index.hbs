@@ -1,27 +1,405 @@
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Homepage</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>{{title}}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="shortcut icon" type="image/x-icon" href="logo" />
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css"
+    />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link href="styles.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script>
+      hljs.highlightAll();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Inconsolata&family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="description" content="&lt;p&gt;Index page&lt;/p&gt;..." />
+    <meta name="author" content="github.com/rickaym" />
+    <meta name="title" content="Homepage" />
+    <style>
+      /* monkey patch for lenis */
+      html {
+        scroll-behavior: auto !important;
+      }
 
-  <link rel="shortcut icon" type="image/x-icon" href="logo">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-  <link href='normalize.css' rel='stylesheet'>
-  <link href='skeleton.css' rel='stylesheet'>
-  <link href='styles.css' rel='stylesheet'>
+      /* variables */
+      :root {
+        --foreground: #2c2c2c;
+        --background: #f9fbff;
+        --accent: #39534d;
+        --border: rgba(0, 0, 0, 0.2);
+      }
 
-  <script>hljs.highlightAll();</script>
-  {{> seo}}
-</head>
+      body {
+        background-color: var(--background);
+        font-family: "Montserrat", sans-serif;
+        color: var(--foreground);
+      }
 
-<body>
-  <div class="container">
-    <h1 class="pt-8">{{title}}</h1>
-    {{{content}}}
-  </div>
-</body>
+      ::selection {
+        background: var(--foreground);
+        color: var(--background);
+      }
 
+      .unselectable {
+        -webkit-user-select: none; /* Chrome, Safari, Opera */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE 10+ */
+        user-select: none; /* Standard syntax */
+      }
+
+      .inconsolata {
+        font-family: "Inconsolata", monospace;
+      }
+
+      .frame-wrapper {
+        padding: 20px 30px;
+        border-radius: 20px;
+        min-width: 100vw;
+        min-height: 100vh;
+      }
+
+      .hidden {
+        visibility: hidden;
+      }
+
+      .frame {
+        min-width: 100%;
+        min-height: 94%;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+      }
+
+      .card-issue {
+        background: var(--background);
+        transition-duration: 500ms;
+        border: none;
+        cursor: pointer;
+      }
+
+      .card-issue:hover {
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+      }
+
+      .card-issue .card-title {
+        transition-duration: 500ms;
+        font-weight: 200;
+        text-decoration: underline solid transparent;
+      }
+
+      .card-issue:hover .card-title {
+        text-decoration: underline solid black;
+      }
+
+      .card-issue-footer {
+        color: var(--accent);
+        font-family: Montserrat;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+
+      .nav-bar {
+        /* blur background */
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      /* Logo */
+
+      .logo {
+        border-right: 1px solid var(--border);
+      }
+
+      .logo-text {
+        color: var(--foreground);
+        text-decoration: none;
+        transition: 500ms;
+      }
+
+      .logo-text:hover {
+        filter: blur(1px);
+      }
+
+      .btn-outline-dark {
+        border-color: rgba(0, 0, 0, 0.3);
+        transition-duration: 500ms;
+        color: rgba(0, 0, 0, 0.5);
+      }
+
+      .btn-outline-dark:hover {
+        background-color: rgba(0, 0, 0, 0.02);
+        color: rgba(0, 0, 0, 1);
+      }
+
+      .btn-outline-dark:active {
+        background-color: #000;
+        color: #fff;
+      }
+
+      .link-btn {
+        color: var(--foreground);
+        transition-duration: 500ms;
+        cursor: pointer;
+        text-decoration: underline solid transparent;
+      }
+
+      .link-btn:hover {
+        text-decoration: underline solid black;
+      }
+
+      .dropdown-toggle::after {
+        display: none;
+      }
+
+      .dropdown-toggle {
+        border: none;
+        background-color: transparent;
+      }
+
+      /* Page loading  */
+
+      #loading-wrapper {
+        backdrop-filter: blur(75px);
+        color: var(--foreground);
+      }
+
+      .fade-away {
+        animation: fade-away 300ms forwards;
+      }
+
+      @keyframes fade-away {
+        0% {
+          color: var(--foreground);
+          backdrop-filter: blur(75px);
+        }
+        100% {
+          color: var(--background);
+          backdrop-filter: blur(0px);
+        }
+      }
+
+      /* Cursor */
+      #cursor {
+        pointer-events: none;
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        z-index: 10000;
+        border: 0.01vw solid var(--foreground);
+        position: fixed;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@0.2.28/bundled/lenis.js"></script>
+    <script>
+      const lenis = new Lenis({});
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    </script>
+    <div id="cursor"></div>
+    <div id="loading-wrapper" style="position: absolute; z-index: 10000">
+      <div class="frame-wrapper">
+        <div style="height: 100%"></div>
+      </div>
+    </div>
+    <div class="frame-wrapper">
+      <div class="frame">
+        <section class="py-4 unselectable nav-bar sticky-top">
+          <div class="row px-5">
+            <div class="col-md-auto logo pe-5">
+              <a href="#top" class="logo-text">
+                <strong>blog</strong>.pyaesonemyo.dev
+              </a>
+            </div>
+            <a
+              class="col-1 text-end inconsolata link-btn"
+              href="https://pyaesonemyo.dev/"
+              >Home</a
+            >
+            <div class="col dropdown inconsolata">
+              <button
+                class="ps-4 link-btn dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Menu
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Blog</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-5 px-5">
+          <h1 class="text-end inconsolata">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto minus repellendus.
+          </h1>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui,
+            similique unde quo minima cupiditate labore beatae dolore et at
+            error consequuntur autem suscipit nobis, dignissimos nihil tenetur?
+            Sit, vel amet.
+          </p>
+          <div class="row justify-content-between">
+            <div class="col">
+              <button
+                type="button"
+                class="btn inconsolata btn-outline-dark hvr-sweep-to-right"
+              >
+                Read More
+              </button>
+            </div>
+            <div class="col text-end">
+              <span class="card-issue-footer">JUL 2, 2023 • 2 MIN READ</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-5 px-5" style="background-color: #ecf0f9">
+          <div class="row">
+            <div class="col">
+              <div class="card card-issue" style="width: 15rem">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    If it isn't mr stanly we will know why
+                  </h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <span class="card-issue-footer"
+                    >JUL 2, 2023 • 2 MIN READ</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card card-issue" style="width: 15rem">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    If it isn't mr stanly we will know why
+                  </h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <span class="card-issue-footer"
+                    >JUL 2, 2023 • 2 MIN READ</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card card-issue" style="width: 15rem">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    If it isn't mr stanly we will know why
+                  </h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <span class="card-issue-footer"
+                    >JUL 2, 2023 • 2 MIN READ</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card card-issue" style="width: 15rem">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    If it isn't mr stanly we will know why
+                  </h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <span class="card-issue-footer"
+                    >JUL 2, 2023 • 2 MIN READ</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col"></div>
+          </div>
+        </section>
+
+        <div style="height: 1000px"></div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.onload = function () {
+        document.querySelector(".frame-wrapper").classList.remove("hidden");
+        const loadingWrapper = document.getElementById("loading-wrapper");
+        loadingWrapper.classList.add("fade-away");
+        setTimeout(() => {
+          loadingWrapper.remove();
+        }, 1000);
+      };
+
+
+      const cursor = document.getElementById("cursor");
+      let x = 0;
+      let y = 0;
+      let mx = 0;
+      let my = 0;
+
+      document.onmousemove = function (e) {
+        mx = e.clientX;
+        my = e.clientY;
+      };
+
+      function animate() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+        x += (mx - x) * 0.1;
+        y += (my - y) * 0.1;
+
+        cursor.style.top = `${y}px`;
+        cursor.style.left = `${x}px`;
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    </script>
+  </body>
 </html>

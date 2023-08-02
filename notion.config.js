@@ -8,7 +8,7 @@ module.exports = {
     buildDirectory: "./build",
   },
   notion: {
-    databaseId: "c30f99b58b264a42b613070b56c88300",
-    linkOriginalPage: true
+    databaseId: "7cff81da25d047c587f9f94b419ecd9d",
+    linkOriginalPage: false
   },
 };

@@ -185,7 +185,7 @@ async function getDatabase(databaseId, withContent) {
     rows.push({
       id: page.id,
       createdTime: page.created_time,
-      slug: page.properties.Slug.rich_text[0].plain_text,
+      slug: slug,
       title: title,
       pageUrl: page.url,
       icon: page.icon,
