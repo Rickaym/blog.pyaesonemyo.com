@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js --ignore **.json",
+    "devBuild": "nodemon static.js --ignore **.json ./build/",
     "start": "node app.js",
     "build": "node static.js"
   },

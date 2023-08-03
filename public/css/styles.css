@@ -6,7 +6,9 @@ html {
 /* variables */
 :root {
     --foreground: #2c2c2c;
+    --foreground-dim: rgba(0, 0, 0, 0.5);
     --background: #f9fbff;
+    --background-dim: rgba(0, 0, 0, 0.02);
     --accent: #39534d;
     --border: rgba(0, 0, 0, 0.2);
 }
@@ -15,6 +17,14 @@ body {
     background-color: var(--background);
     font-family: "Montserrat", sans-serif;
     color: var(--foreground);
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 ::selection {
@@ -33,63 +43,50 @@ body {
     /* Standard syntax */
 }
 
+/* fonts */
+
 .inconsolata {
     font-family: "Inconsolata", monospace;
+}
+
+.consolas {
+    font-family: "Consolas", monospace;
 }
 
 .frame-wrapper {
     padding: 20px 30px;
     border-radius: 20px;
-    min-width: 100vw;
-    min-height: 100vh;
+}
+
+.vh-height {
+    height: 100vh;
+}
+
+.frame {
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 20px;
+    border: 1px solid var(--border);
 }
 
 .hidden {
     visibility: hidden;
 }
 
-.frame {
-    min-width: 100%;
-    min-height: 94%;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-}
-
-.card-issue {
-    background: var(--background);
-    transition-duration: 500ms;
-    border: none;
-    cursor: pointer;
-}
-
-.card-issue:hover {
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
-}
-
-.card-issue .card-title {
-    transition-duration: 500ms;
-    font-weight: 200;
-    text-decoration: underline solid transparent;
-}
-
-.card-issue:hover .card-title {
-    text-decoration: underline solid black;
-}
-
-.card-issue-footer {
-    color: var(--accent);
-    font-family: Montserrat;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-
 .nav-bar {
     /* blur background */
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.divider {
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.category-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--foreground-dim);
 }
 
 /* Logo */
@@ -110,12 +107,12 @@ body {
 
 .btn-outline-dark {
     border-color: rgba(0, 0, 0, 0.3);
-    transition-duration: 500ms;
-    color: rgba(0, 0, 0, 0.5);
+    transition-duration: 200ms;
+    color: var(--foreground-dim);
 }
 
 .btn-outline-dark:hover {
-    background-color: rgba(0, 0, 0, 0.02);
+    background-color: var(--background-dim);
     color: rgba(0, 0, 0, 1);
 }
 
