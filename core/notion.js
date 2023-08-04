@@ -4,6 +4,7 @@ const showdown = require("showdown");
 const handlebars = require("handlebars");
 const notionCfg = require("../notion.config");
 const { Client } = require("@notionhq/client");
+const path = require('path');
 
 config();
 
@@ -139,7 +140,7 @@ async function blocksToContentDict(blocks) {
     }
   }
 
-  return {markdown: mdContent, text: txtContent};
+  return { markdown: mdContent, text: txtContent };
 }
 
 async function getPageContent(pageId) {
@@ -201,9 +202,35 @@ async function getDatabase(databaseId, withContent) {
   return rows;
 }
 
-async function loadDatabase() {
+async function loadDatabase(debug) {
+  // if cache exists
+  if (
+    debug &&
+    fs.existsSync(path.join(__dirname, "..", "cache", "site_data.json"))
+  ) {
+    // loads into SITE_DATA
+    let data = JSON.parse(
+      fs.readFileSync(
+        path.join(__dirname, "..", "cache", "site_data.json"),
+        "utf8"
+      )
+    );
+    for (const key in data) {
+      const element = data[key];
+      SITE_DATA[key] = element;
+    }
+    return;
+  }
+
   const rows = await getDatabase(notionCfg.notion.databaseId, true);
   rows.forEach((row) => (SITE_DATA[row.slug] = row));
+  // write SITE_DATA into a file cache
+  if (debug) {
+    fs.writeFileSync(
+      path.join(__dirname, "..", "cache", "site_data.json"),
+      JSON.stringify(SITE_DATA)
+    );
+  }
 }
 module.exports = {
   SITE_DATA: SITE_DATA,
