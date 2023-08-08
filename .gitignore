@@ -4,4 +4,5 @@ build/**
 .env
 **.json
 !nodemon.json
+!package-lock.json
 **.py
