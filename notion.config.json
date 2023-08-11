@@ -1,0 +1,9 @@
+{
+  "port": 3000,
+  "name": "blog.pyaesonemyo.dev",
+  "staticDirectory": "./public",
+  "viewsDirectory": "./views",
+  "partialsDirectory": "./views/partials",
+  "buildDirectory": "./build",
+  "linkOriginalPage": true
+}

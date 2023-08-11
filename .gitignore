@@ -2,7 +2,4 @@ node_modules
 logs/**
 build/**
 .env
-**.json
-!nodemon.json
-!package-lock.json
-**.py
+**.tgz
