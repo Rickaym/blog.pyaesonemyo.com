@@ -19,7 +19,7 @@
     <div class="frame">
       {{> navbar}}
 
-      <section class="py-5 px-5">
+      <section class="content">
         {{#with (get_latest pages)}}
         <h2 class="category-title text-uppercase">Latest — {{get_datetime createdTime}}</h2>
         <a href="./{{slug}}">
@@ -43,7 +43,7 @@
         {{/with}}
       </section>
 
-      <section class="py-5 px-5 cards-container">
+      <section class="content">
         <div class="row">
           <div class="col-md">
             {{#each pages}}

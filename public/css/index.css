@@ -27,3 +27,13 @@
     font-weight: 700;
     line-height: normal;
 }
+
+section.content {
+    padding: 3rem!important;
+}
+
+@media (max-width: 767px) {
+    section.content {
+        padding: 1.1rem!important;
+    }
+}
