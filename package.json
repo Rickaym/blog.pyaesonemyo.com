@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "start": "npx web-notion serve",
-    "build": "npx web-notion build"
+    "build": "npx web-notion build",
+    "devBuild": "nodemon --exec \"npx web-notion build\""
   },
   "repository": {
     "type": "git",

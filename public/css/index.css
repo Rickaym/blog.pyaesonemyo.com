@@ -4,10 +4,9 @@
     backdrop-filter: blur(10px);
     border: none;
     cursor: pointer;
-}
-
-.card-issue:hover {
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid var(--accent);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .card-issue .card-title {
@@ -22,7 +21,7 @@
 
 .card-issue-footer {
     color: var(--accent);
-    font-family: Montserrat;
+    font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
