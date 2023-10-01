@@ -3,7 +3,7 @@
 
 <head>
   <title>Blog - Pyae Sone Myo</title>
-  {{> global-head}}
+  {{> head}}
   <link rel="stylesheet" href="css/index.css" />
 </head>
 
@@ -20,7 +20,7 @@
       {{> navbar}}
 
       <section class="content">
-        {{#with (get_latest pages)}}
+        {{#with latest}}
         <h2 class="category-title text-uppercase">Latest — {{get_datetime createdTime}}</h2>
         <a href="./{{slug}}">
           <h1 class="inconsolata">{{title}}</h1>
@@ -47,6 +47,7 @@
         <div class="row">
           <div class="col-md">
             {{#each pages}}
+            {{#unless (compare ../latest.slug "===" slug)}}
             <div class="card card-issue mb-5">
               <div class="card-body p-0">
                 <h5 class="card-title">
@@ -60,6 +61,7 @@
                 <span class="card-issue-footer">{{get_datetime createdTime}} • {{get_readtime content.text}}</span>
               </div>
             </div>
+            {{/unless}}
             {{else}}
             <p>
               This place is empty...

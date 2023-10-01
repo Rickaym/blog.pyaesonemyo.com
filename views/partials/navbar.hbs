@@ -1,21 +1,42 @@
 <section class="py-4 unselectable nav-bar sticky-top">
     <div class="row px-5">
         <div class="col-md-auto logo pe-5 me-4">
-            <a href="#top" class="logo-text">
-                <strong>blog</strong>.pyaesonemyo.dev
-            </a>
+            <div class="row">
+                <div class="col">
+                    <a href="#top" class="logo-text"><strong>blog</strong>.pyaesonemyo.dev</a>
+                </div>
+                <div class="col">
+                    <div class="switch">
+                        <input type="checkbox" id="toggle" class="toggle-input">
+                        <label for="toggle" class="slider">
+                            <span class="knob">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png"
+                                    alt="Off" class="off-image">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Flag_of_Myanmar.svg/2560px-Flag_of_Myanmar.svg.png"
+                                    alt="On" class="on-image">
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
-        <a class="col-1 text-end inconsolata link-btn" href="https://pyaesonemyo.dev/">Home</a>
-        <div class="col dropdown inconsolata">
-            <button class="ps-4 link-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <div class="col-2">
+            <i class="fa-solid fa-house fa-xs" style="padding-right: 5px;"></i>
+            <a class="text-end inconsolata link-btn i18n" href="https://github.com/Rickaym#:~:text=Pinned"
+                data-content-2="ပင်မ">
+                Home</a>
+        </div>
+        <div class="col-2 dropdown inconsolata">
+            <i class="fa-solid fa-bars fa-xs align-middle" style="padding: 0 5px 2px 0;"></i>
+            <a class="link-btn dropdown-toggle i18n" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                data-content-2="အခြား">
                 Menu
-            </button>
+            </a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="https://projects.pyaesonemyo.dev">Projects</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="https://pyaesonemyo.dev">Portfolio</a>
                 </li>
+                <li><a class="dropdown-item" href="https://github.com/Rickaym#:~:text=Pinned">Projects</a></li>
             </ul>
         </div>
     </div>
