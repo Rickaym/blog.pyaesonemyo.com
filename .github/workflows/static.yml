@@ -38,6 +38,7 @@ jobs:
         env:
           NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          ENVIRONMENT: production
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v2
