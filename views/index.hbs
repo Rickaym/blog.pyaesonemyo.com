@@ -10,20 +10,16 @@
 <body>
   {{> lenis}}
   <div id="cursor"></div>
-  <div id="loading-wrapper" style="position: absolute; z-index: 10000">
-    <div class="frame-wrapper">
-      <div style="height: 100%"></div>
-    </div>
-  </div>
+  <div id="loading-screen"></div>
   <div class="frame-wrapper">
     <div class="frame">
       {{> navbar}}
 
       <section class="content">
         {{#with latest}}
-        <h2 class="category-title text-uppercase">Latest — {{get_datetime createdTime}}</h2>
+        <h3 class="category-title text-uppercase"><span class="i18n" data-content-2="မကြာမီက">Latest</span> — {{get_datetime createdTime}}</h3>
         <a href="./{{slug}}">
-          <h1 class="inconsolata">{{title}}</h1>
+          <h2 class="inconsolata">{{title}}</h2>
         </a>
         <p>
           {{{get_content_slice content.text 300 true}}}...
@@ -63,15 +59,15 @@
             </div>
             {{/unless}}
             {{else}}
-            <p>
-              This place is empty...
+            <p class="i18n" data-content-2="တစုံတခုမှားသွားသည်။">
+              Something went wrong...
             </p>
             {{/each}}
           </div>
           <div class="col-sm-4">
-            <h1>About -</h1>
-            <p>
-              Hello! I'm Pyae Sone Myo. This space is my little corner of the internet where I share thoughts, insights,
+            <h3 class="i18n" data-content-2="အကြောင်းအရာ">About</h3>
+            <p class="i18n" data-content-2="ဒီနေရာက ကျွန်တော့ရဲ့ အတွေးအမြင်များနှင့် အသိဥာဏ်များ ကိုမျှဝေသည့် နေရာလေးတစ်ခုပါ။">
+              Hello! I'm Pyae Sone Myo. This space is my little corner of the internet where I share my thoughts, insights,
               and contemporary projects.
             </p>
           </div>
@@ -80,11 +76,7 @@
       <div style="height: 1000px"></div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
-  <script src="https://pyaesonemyo.dev/js/cursor.js"></script>
-  <script src="https://pyaesonemyo.dev/js/loading.js"></script>
+  {{> scripts}}
 </body>
 
 </html>

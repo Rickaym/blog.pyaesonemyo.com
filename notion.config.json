@@ -5,5 +5,5 @@
   "viewsDirectory": "./views",
   "partialsDirectory": "./views/partials",
   "buildDirectory": "./build",
-  "linkOriginalPage": true
+  "linkOriginalPage": false
 }

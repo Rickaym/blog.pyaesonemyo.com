@@ -177,7 +177,7 @@ a:hover {
 
 /* Page loading  */
 
-#loading-wrapper {
+#loading-screen {
     backdrop-filter: blur(75px);
     color: var(--foreground);
 }
