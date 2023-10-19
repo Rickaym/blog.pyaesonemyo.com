@@ -1,6 +1,6 @@
 {
   "port": 3000,
-  "name": "blog.pyaesonemyo.dev",
+  "name": "blog.pyaesonemyo.com",
   "staticDirectory": "./public",
   "viewsDirectory": "./views",
   "partialsDirectory": "./views/partials",
